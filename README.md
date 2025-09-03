@@ -1,5 +1,5 @@
 # Game Developer Assignment for [SoftGames](https://www.softgames.com/)
-[![Build Status](https://github.com/CrazyFlasher/foxium-test-slot/actions/workflows/test.yml/badge.svg "Github Actions")](https://github.com/CrazyFlasher/softgames-test-assignment/actions/workflows/test.yml)
+[![Build Status](https://github.com/CrazyFlasher/softgames-test-assignment/actions/workflows/test.yml/badge.svg "Github Actions")](https://github.com/CrazyFlasher/softgames-test-assignment/actions/workflows/test.yml)
 
 Project is created with [TypeScript](https://www.typescriptlang.org/) using main libraries:
 
