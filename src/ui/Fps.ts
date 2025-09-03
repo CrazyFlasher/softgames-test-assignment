@@ -6,7 +6,7 @@ export class Fps
     private acc = 0;
     private frames = 0;
 
-    constructor(el: HTMLElement, ticker: Ticker)
+    public constructor(el: HTMLElement, ticker: Ticker)
     {
         this.el = el;
 
