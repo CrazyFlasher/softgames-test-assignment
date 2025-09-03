@@ -125,7 +125,7 @@ export class MagicWordsScene extends AbstractScene
             this.currentDialogueIndex = 0;
         }
 
-        this.dialogueTl = gsap.delayedCall(2.5, () => this.showNextDialogue());
+        this.dialogueTl = gsap.delayedCall(3.5, () => this.showNextDialogue());
     }
 
     public override onHide(): void
