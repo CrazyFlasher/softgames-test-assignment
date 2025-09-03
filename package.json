@@ -25,6 +25,7 @@
     "vite-plugin-checker": "0.10.3",
     "@pixi/particle-emitter": "5.0.8",
     "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0"
+    "@typescript-eslint/parser": "7.18.0",
+    "screenfull": "6.0.2"
   }
 }

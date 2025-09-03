@@ -24,9 +24,6 @@ export class PhoenixScene extends AbstractScene
             fireTexture: Texture;
         };
 
-        // To be sure not to render more than 10
-        fireConfig.maxParticles = Math.min(10, fireConfig.maxParticles ?? 10);
-
         this.fireConfig = fireConfig;
         this.fireTexture = fireTexture;
 

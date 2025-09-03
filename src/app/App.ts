@@ -5,10 +5,10 @@ import {Fps} from "../ui/Fps";
 import {AceScene} from "../scenes/ace/AceScene";
 import {MagicWordsScene} from "../scenes/magic/MagicWordsScene";
 import {PhoenixScene} from "../scenes/phoenix/PhoenixScene";
-import {Resizer} from "./Resizer";
 import {gsap} from "gsap";
 import {PixiPlugin} from "gsap/PixiPlugin";
 import {appDimensions, assetsManifest, SceneName} from "../shared/config";
+import {Resizer} from "./Resizer";
 
 export class App
 {
@@ -41,7 +41,6 @@ export class App
 
         this.initPixi();
         this.initFpsCounter();
-        this.addEventListeners();
         this.registerScenes();
 
         this.readyCallback();
@@ -58,6 +57,7 @@ export class App
         PixiPlugin.registerPIXI(PIXI);
 
         this.pixi = new Application({
+            resolution: window.devicePixelRatio || 1,
             resizeTo: window,
             autoDensity: true,
             antialias: false,
@@ -73,29 +73,6 @@ export class App
     private initFpsCounter()
     {
         this.fps = new Fps(this.fpsEl, this.pixi.ticker);
-    }
-
-    private async enableFs(): Promise<void>
-    {
-        try
-        {
-            if (document.fullscreenElement)
-            {
-                await this.rootEl.requestFullscreen();
-            }
-        } catch
-        {
-
-        }
-
-        window.removeEventListener("pointerdown", this.enableFs.bind(this));
-        window.removeEventListener("keydown", this.enableFs.bind(this));
-    }
-
-    private addEventListeners()
-    {
-        window.addEventListener("pointerdown", this.enableFs.bind(this), {once: true});
-        window.addEventListener("keydown", this.enableFs.bind(this), {once: true});
     }
 
     private registerScenes()

@@ -1,5 +1,6 @@
 import {App} from "./app/App";
 import {SceneName} from "./shared/config";
+import screenfull from "screenfull";
 
 const rootEl = document.getElementById("app")!;
 const fpsEl = document.getElementById("fps")!;
@@ -17,14 +18,25 @@ sceneButtons.forEach(([id, scene]) =>
     document.getElementById(id)?.addEventListener("click", () => setActiveScene(scene));
 });
 
-function setActiveScene(scene: SceneName)
+async function setActiveScene(scene: SceneName)
 {
+    const enableButtons: HTMLButtonElement[] = [];
+
     sceneButtons.forEach(([id, key]) =>
     {
-        const btn = document.getElementById(id) as HTMLButtonElement | null;
-        if (!btn) return;
-        btn.disabled = key == scene;
+        const btn = document.getElementById(id) as HTMLButtonElement;
+
+        btn.disabled = true;
+
+        if (key != scene)
+        {
+            enableButtons.push(btn);
+        }
     });
 
-    app.showScene(scene);
+    await app.showScene(scene);
+
+    enableButtons.forEach(button => button.disabled = false);
 }
+
+document.onclick = () => screenfull.request();
